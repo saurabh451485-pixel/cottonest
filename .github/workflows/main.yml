@@ -1,0 +1,25 @@
+name: Expire Scratch Card
+
+on:
+  schedule:
+    - cron: '0 0 * * *'  # Runs daily at midnight UTC
+  workflow_dispatch:     # Allows manual trigger
+
+jobs:
+  expire:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+
+      - name: Replace index.html with expired.html
+        run: |
+          cp expired.html index.html
+
+      - name: Commit and push changes
+        run: |
+          git config user.name "GitHub Actions"
+          git config user.email "actions@github.com"
+          git add index.html
+          git commit -m "Replace scratch card with expired page"
+          git push
