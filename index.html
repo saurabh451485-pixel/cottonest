@@ -233,7 +233,7 @@
       if (pixels[i] === 0) cleared++;
     }
     const percent = cleared / (canvas.width * canvas.height) * 100;
-    if (percent > 100) {
+    if (percent > 50) {
       canvas.style.display = 'none';
       launchConfetti();
     }
@@ -255,4 +255,5 @@
 
 </body>
 </html>
+
 
