@@ -89,14 +89,16 @@
       background-color: #b85c1c;
     }
 
-    canvas {
-      position: absolute;
-      top: 0;
-      left: 0;
-      z-index: 2;
-      cursor: crosshair;
-      touch-action: none;
-    }
+   canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  cursor: crosshair;
+  touch-action: none;
+  width: 100%;
+  height: 100%;
+}
 
     .confetti {
       position: fixed;
@@ -136,7 +138,8 @@
 
   </style>
 </head>
-<body>
+<body ontouchstart="">
+
 
 <div class="logo">
   <img src="C:\Users\saura\OneDrive\Desktop\Logo Final rectangle_HD.png" alt="Cotton Nest Logo">
@@ -177,15 +180,18 @@
   }
 
   function resizeCanvas() {
-    const card = document.getElementById('card');
-    canvas.width = card.offsetWidth;
-    canvas.height = card.offsetHeight;
-    ctx.fillStyle = 'silver';
-    ctx.fillRect(0, 0, canvas.width, canvas.height);
-  }
+  const card = document.getElementById('card');
+  canvas.width = card.offsetWidth;
+  canvas.height = card.offsetHeight;
+  ctx.fillStyle = 'silver';
+  ctx.fillRect(0, 0, canvas.width, canvas.height);
+}
+
 
   window.addEventListener('resize', resizeCanvas);
   window.addEventListener('load', resizeCanvas);
+  document.addEventListener('DOMContentLoaded', resizeCanvas);
+
 
   canvas.addEventListener('mousedown', () => {
     canvas.addEventListener('mousemove', scratch);
@@ -255,6 +261,7 @@
 
 </body>
 </html>
+
 
 
 
